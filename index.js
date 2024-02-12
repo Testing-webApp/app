@@ -15,9 +15,10 @@ const app = express();
 const port = process.env.PORT || 3002;
 
 app.use(express.json())
+app.use(cors())
 
-
-app.use(cors( {origin: 'http://blabla-nikola.azurewebsites.net',
+/*
+app.use(cors( {origin: 'http://localhost:3001',
   credentials: true,
   secure: true}));
 
@@ -25,12 +26,13 @@ app.use(cors( {origin: 'http://blabla-nikola.azurewebsites.net',
 
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://blabla-nikola.azurewebsites.net');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
   next();
 });
+*/
 
 // Define a route for POST requests
 app.post('/bla', (req, res) => {
@@ -40,7 +42,7 @@ app.post('/bla', (req, res) => {
 
 
 
-app.use('/login', login);
+//app.use('/login', login);
 
 // Serve static files from the client build directory
 app.use(express.static(path.join(__dirname, 'client', 'build')));
