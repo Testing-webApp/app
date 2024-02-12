@@ -14,7 +14,7 @@ const port = process.env.PORT || 3002;
 app.use(cors());
 
 // Define a route for POST requests
-app.post('/', (req, res) => {
+app.post('/brat', (req, res) => {
     res.send("HELLO");
 });
 
