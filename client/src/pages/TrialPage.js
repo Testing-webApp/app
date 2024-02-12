@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import baseUrl from './baseUrl.js';
+import baseUrl from '../baseUrl.js';
 
 function TrialPage() {
   const [response, setResponse] = useState('');
@@ -9,7 +9,7 @@ function TrialPage() {
     const fetchData = async () => {
       try {
         console.log(`${baseUrl}/bla`)
-        const response = await axios.post(`${baseUrl}/bla`);
+        const response = await axios.post(`/bla`);
         console.log(response)
         setResponse(response.data);
       } catch (error) {

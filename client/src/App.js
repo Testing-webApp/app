@@ -1,11 +1,14 @@
 import Header from "./components/Header";
 import TrialPage from "./pages/TrialPage";
+import LoginPage from "./pages/LoginPage.js";
+import baseUrl from './baseUrl.js';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import baseUrl from './pages/baseUrl.js';
 import axios from "axios";
 
 
 
+
+axios.defaults.baseURL = baseUrl+":3000";
 
 
 function App() {
@@ -14,6 +17,9 @@ function App() {
    
       <Routes>
         <Route path="/" element={<TrialPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
+
 
       </Routes>
     </Router>
