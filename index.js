@@ -42,7 +42,7 @@ app.post('/bla', (req, res) => {
 
 
 
-//app.use('/login', login);
+app.use('/login', login);
 
 // Serve static files from the client build directory
 app.use(express.static(path.join(__dirname, 'client', 'build')));

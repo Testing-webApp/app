@@ -1,5 +1,7 @@
 const { Link, Navigate } = require("react-router-dom");
 const { useState } =  require('react');
+const baseUrl = require( '../baseUrl.js');
+
 
 const axios = require('axios')
 
@@ -31,12 +33,12 @@ function LoginPage() {
 
   async function login() {
   try {
-    const response_landlord = await axios.post('/login/Landlord', login_info, {withCredentials: true});
+    const response_landlord = await axios.post(`${baseUrl}/login/Landlord`, login_info, {withCredentials: true});
     if(response_landlord.data === 'No email found'){
-      const response_spec = await axios.post('/login/Spectator', login_info, {withCredentials: true});
+      const response_spec = await axios.post(`${baseUrl}/login/Spectator`, login_info, {withCredentials: true});
 
       if(response_spec.data === 'No email found'){
-        const response_per = await axios.post('/login/Performer', login_info, {withCredentials: true});
+        const response_per = await axios.post(`${baseUrl}/login/Performer`, login_info, {withCredentials: true});
         if(response_per.data === 'No email found'){
     }
     else{
