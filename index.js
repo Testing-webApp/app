@@ -14,8 +14,8 @@ const port = process.env.PORT;
 app.use(cors());
 
 // Define a route for POST requests
-app.post('/brat', (req, res) => {
-    res.send("HELLO");
+app.post('/', (req, res) => {
+    res.send(port);
 });
 
 // Serve static files from the client build directory

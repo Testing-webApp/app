@@ -8,7 +8,7 @@ function TrialPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('/brat');
+        const response = await axios.post(baseUrl);
         console.log(response)
         setResponse(response.data);
       } catch (error) {
