@@ -8,6 +8,7 @@ function TrialPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(`${baseUrl}/bla`)
         const response = await axios.post(`${baseUrl}/bla`);
         console.log(response)
         setResponse(response.data);
