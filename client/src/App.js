@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-axios.defaults.baseURL = baseUrl+":3000";
+//axios.defaults.baseURL = baseUrl+":3000";
 
 
 function App() {
