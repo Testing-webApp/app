@@ -1,14 +1,12 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
+const express = require('express');
+const cors = require('cors');
+const dotenv = require ('dotenv');
+const path = require('path')
 dotenv.config();
 
 // Get the directory name of the current module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 const port = process.env.PORT || 3002;
 const app = express();
@@ -20,10 +18,10 @@ app.post('/', (req, res) => {
 });
 
 // Serve static files from the client build directory
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static('./client/build'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(port, () => {
