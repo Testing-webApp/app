@@ -1,29 +1,33 @@
-
 const express = require('express');
 const cors = require('cors');
-const dotenv = require ('dotenv');
-const path = require('path')
+const dotenv = require('dotenv');
+const path = require('path');
 dotenv.config();
 
-// Get the directory name of the current module
-
-
-const port = process.env.PORT || 3002;
+// Create an instance of Express
 const app = express();
 
+// Set the port
+const port = process.env.PORT || 3002;
+
+// Enable CORS middleware
 app.use(cors());
 
+// Define a route for POST requests
 app.post('/', (req, res) => {
     res.send("HELLO");
 });
 
 // Serve static files from the client build directory
-app.use(express.static('./client/build'));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
+// Define a catch-all route to serve the index.html file
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
+// Start the server
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}...`);
 });
+
