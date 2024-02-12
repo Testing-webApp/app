@@ -1,3 +1,3 @@
-const baseUrl = "http://localhost";
+const baseUrl = "http://blabla-nikola.azurewebsites.net";
 
 export default baseUrl;
