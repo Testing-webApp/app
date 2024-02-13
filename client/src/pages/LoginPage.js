@@ -33,6 +33,7 @@ function LoginPage() {
 
   async function login() {
   try {
+    console.log("This is the message ",`${baseUrl}/login/Landlord`)
     const response_landlord = await axios.post(`${baseUrl}/login/Landlord`, login_info, {withCredentials: true});
     if(response_landlord.data === 'No email found'){
       const response_spec = await axios.post(`${baseUrl}/login/Spectator`, login_info, {withCredentials: true});
