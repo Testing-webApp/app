@@ -46,9 +46,9 @@ app.post('/bla', (req, res) => {
 
 app.post('login/Landlord', async(req, res)=>{
     
-    console.log('asjfn')
-    const {Email, Password} = req.body
     
+    const {Email, Password} = req.body
+    try{
     const data = await get_Landlord(Email);
     if(data.length ===0){
        
@@ -67,6 +67,9 @@ app.post('login/Landlord', async(req, res)=>{
     }
     else{
         res.send("Credentials are incorrect");
+    }}
+    catch(e){
+        res.send('The error is: ', e)
     }
     
 
