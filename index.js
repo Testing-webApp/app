@@ -44,7 +44,8 @@ app.post('/bla', (req, res) => {
 });
 
 
-app.post('login/Landlord', async(req, res)=>{
+app.post('/login/Landlord', async(req, res)=>{
+
     
     res.send("jebi ga")
     /*
