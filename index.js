@@ -34,12 +34,43 @@ app.use((req, res, next) => {
 });
 */
 
+
+
+
 // Define a route for POST requests
 app.post('/bla', (req, res) => {
     console.log(req.body)
     res.send(port);
 });
 
+
+app.post('landlord/Landlord', async(req, res)=>{
+    
+    console.log('asjfn')
+    const {Email, Password} = req.body
+    
+    const data = await get_Landlord(Email);
+    if(data.length ===0){
+       
+        res.send('No email found')
+        return;
+    }
+    console.log(data.length);
+    const result = await bcrypt.compare(Password, data[0].Password)
+    console.log(result)
+    if (result){
+ 
+        const token = await jwt.sign({id: data[0].ID, email: Email}, process.env.ACCESS_TOKEN_SECRET);
+        //res.cookie('token', token, { httpOnly: true, sameSite:'none', secure: false}).json();
+        res.send({status: "success", token: token})
+        
+    }
+    else{
+        res.send("Credentials are incorrect");
+    }
+    
+
+});
 
 
 app.use('/login', login);
