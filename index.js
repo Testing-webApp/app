@@ -47,8 +47,7 @@ app.post('/bla', (req, res) => {
 app.post('/login/Landlord', async(req, res)=>{
 
     
-    res.send("jebi ga")
-    /*
+    
     const {Email, Password} = req.body
     try{
     const data = await get_Landlord(Email);
@@ -73,7 +72,7 @@ app.post('/login/Landlord', async(req, res)=>{
     catch(e){
         res.send('The error is: ', e)
     }
-    */
+    
 
 });
 
