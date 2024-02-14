@@ -44,7 +44,7 @@ app.post('/bla', (req, res) => {
 });
 
 
-app.post('landlord/Landlord', async(req, res)=>{
+app.post('login/Landlord', async(req, res)=>{
     
     console.log('asjfn')
     const {Email, Password} = req.body
@@ -73,7 +73,7 @@ app.post('landlord/Landlord', async(req, res)=>{
 });
 
 
-app.use('/login', login);
+//app.use('/login', login);
 
 // Serve static files from the client build directory
 app.use(express.static(path.join(__dirname, 'client', 'build')));
